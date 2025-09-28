@@ -1,1 +1,1 @@
-source = "C:/Users/sunwoo/scoop/apps/msys2/current/usr/bin/ls.exe --color=tty -olah"
+source = "C:/msys2/usr/bin/ls.exe --color=tty -olah"
