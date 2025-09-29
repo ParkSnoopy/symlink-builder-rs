@@ -31,6 +31,6 @@ fn main() {
         .args(source)
         .stdin(Stdio::inherit())
         .stdout(Stdio::inherit())
-        .spawn()
+        .output()
         .expect(format!("failed to execute command `{}`", &inst.source).as_str());
 }
