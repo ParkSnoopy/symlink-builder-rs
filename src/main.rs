@@ -9,6 +9,8 @@ struct Instruction {
 }
 
 fn main() {
+    let user_args: Vec<String> = env::args().skip(1).collect();
+
     let inst_dir = {
         let mut bin_d = env::current_exe()
             .expect("Couldn't find the running binary.");
@@ -27,8 +29,11 @@ fn main() {
     let root = source.next()
         .expect("no file specified in `inst.toml`");
 
+    let mut args: Vec<String> = source.map(|x| x.to_string()).collect();
+    args.extend(user_args);
+
     Command::new(root)
-        .args(source)
+        .args(args)
         .stdin(Stdio::inherit())
         .stdout(Stdio::inherit())
         .output()
